@@ -1,0 +1,59 @@
+{
+  "_from": "git+https://github.com/victorsoftart/cordova-plugin-asset-downloader.git",
+  "_id": "cordova-plugin-asset-downloader@0.1.0",
+  "_inBundle": false,
+  "_integrity": "",
+  "_location": "/cordova-plugin-asset-downloader",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "git",
+    "raw": "https://github.com/victorsoftart/cordova-plugin-asset-downloader",
+    "rawSpec": "https://github.com/victorsoftart/cordova-plugin-asset-downloader",
+    "saveSpec": "git+https://github.com/victorsoftart/cordova-plugin-asset-downloader.git",
+    "fetchSpec": "https://github.com/victorsoftart/cordova-plugin-asset-downloader.git",
+    "gitCommittish": null
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "git+https://github.com/victorsoftart/cordova-plugin-asset-downloader.git#9335897b1330f5bc2327312b03a64c0fbafd3cb5",
+  "_spec": "https://github.com/victorsoftart/cordova-plugin-asset-downloader",
+  "_where": "F:\\Cordova\\AssetDownloaderTestApp",
+  "author": {
+    "name": "Victor, Fabian Strachanski, Manuel Ramon Lopez Torres"
+  },
+  "bugs": {
+    "url": "https://github.com/victorsoftart/cordova-plugin-asset-downloader/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "cordova-plugin-asset-downloader",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "deprecated": false,
+  "description": "Downloads files to persistant Storage on your Phone, checks md5sum if you want, (For Android and iOS)",
+  "homepage": "https://github.com/victorsoftart/cordova-plugin-asset-downloader#readme",
+  "keywords": [
+    "cordova",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios",
+    "file",
+    "download",
+    "downloader",
+    "multiple",
+    "md5",
+    "unzip"
+  ],
+  "license": "MIT",
+  "name": "cordova-plugin-asset-downloader",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/victorsoftart/cordova-plugin-asset-downloader.git"
+  },
+  "version": "0.1.0"
+}

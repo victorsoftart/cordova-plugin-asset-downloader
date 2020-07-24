@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" id="cordova-plugin-asset-downloader" version="0.4.0">
+	<name>Asset Downloader</name>
+	<author>Victor</author>
+	<author>Fabian Strachanski</author>
+	<author>Manuel Ramon Lopez Torres</author>
+	<description>Downloads files to persistant Storage on your Phone, checks md5sum if you want (For Android and iOS)</description>
+	<license>MIT</license>
+	<keywords>file,download,checksum,md5,unzip</keywords>
+	<repo>https://github.com/victorsoftart/cordova-plugin-asset-downloader.git</repo>
+	<issue>https://github.com/victorsoftart/cordova-plugin-asset-downloader/issues</issue>
+
+	<js-module src="www/downloader.min.js" name="downloader">
+		<clobbers target="downloader" />
+	</js-module>
+</plugin>
