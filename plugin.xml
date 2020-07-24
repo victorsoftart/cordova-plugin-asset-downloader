@@ -10,7 +10,7 @@
 	<repo>https://github.com/victorsoftart/cordova-plugin-asset-downloader.git</repo>
 	<issue>https://github.com/victorsoftart/cordova-plugin-asset-downloader/issues</issue>
 
-	<js-module src="www/downloader.min.js" name="downloader">
+	<js-module src="www/AssetDownloader.min.js" name="downloader">
 		<clobbers target="downloader" />
 	</js-module>
 </plugin>
