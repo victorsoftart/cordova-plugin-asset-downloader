@@ -1,6 +1,5 @@
 # cordova-plugin-asset-downloader
-Cordova plugin to download a List of files or a single file to the Phone, check consistency(Android and ios)
-no `cordova-file-transfer` dependency. `cordova-file-transfer` was recently [depreciated](https://cordova.apache.org/blog/2017/10/18/from-filetransfer-to-xhr2.html).
+Cordova plugin to download a List of files or a single file to the Phone, check consistency(Android and iOS).
 
 Inspired by `cordova-plugin-fastrde-downloader` but with less features.
 
@@ -29,24 +28,22 @@ options:
 - **baseUrl**: server base url to downloads [required]
 - **folder**: folder to store downloads in [required]
 - **fileSystem**: fileSystem to store downloads in (use cordova.file.* to be platform independent)
-- **delete**: *true* -> delete a file or folder [default: *true*]
 - **wifiOnly**: *true* -> only Download when connected to Wifi, else fires ``DOWNLOADER_noWifiConnection`` event [default: *false*]
 
 ### Download single file
-
 ```javascript
-AssetDownloader.getAsset("http://yourhost.de/some.zip");
+AssetDownloader.getAsset("/assets/some.png");
 ```
 
 ### Download multiple files
-
 ```javascript
 AssetDownloader.getMultipleAssets([
-  {url:"http://yourhost.de/some1.zip"},
-  {url:"http://yourhost.de/some2.zip"},
-  {url:"http://yourhost.de/some3.zip"}
+  {url: "/assets/some1.png"},
+  {url: "/assets/some2.png"},
+  {url: "/assets/some3.png"}
 ]);
 ```
+
 ### Abort download in progress
 You have to re-init downloader after aborting an transfer
 
@@ -69,34 +66,58 @@ DOWNLOADER_noWifiConnection   data:none
 DOWNLOADER_downloadSuccess    data:[cordova.fileEntry entry]
 DOWNLOADER_downloadError      data:[object error]
 DOWNLOADER_downloadProgress   data:[number percentage, string fileName]
+DOWNLOADER_fetchSuccess       data:[assetUrl]
+DOWNLOADER_fetchError         data:[assetUrl, object error]
+DOWNLOADER_removeSuccess      data:[cordova.fileEntry entry]
+DOWNLOADER_removeError        data:[cordova.fileEntry entry]
+DOWNLOADER_removeFileGetError data:[object error]
 DOWNLOADER_fileRemoved        data:[cordova.fileEntry entry]
 DOWNLOADER_fileRemoveError    data:[cordova.fileEntry entry]
 DOWNLOADER_getFileError       data:[object error]
+DOWNLOADER_folderRemoved      data:[cordova.fileEntry entry]
+DOWNLOADER_folderRemoveError  data:[cordova.fileEntry entry]
+DOWNLOADER_getFolderError     data:[object error]
 ```
 
 ## Full Examples
 
-### Download file some.txt to folder downloads
+### Download file some.png to folder downloads
 ```javascript
-AssetDownloader.init({folder: "downloads"});
-AssetDownloader.getAsset("http://yourhost.de/some.txt");
+AssetDownloader.init({
+  baseUrl: "http://yourhost.com",
+  folder: 'downloads',
+  fileSystem: cordova.file.dataDirectory
+});
+AssetDownloader.getAsset("/assets/some.png");
 ```
 
-### Download file abort.zip and abort download, the download another.zip
+### Download file abort.png and abort download, then download another.png
 ```javascript
-AssetDownloader.init({folder: "downloads"});
-AssetDownloader.getAsset("http://yourhost.de/abort.zip");
+AssetDownloader.init({
+  baseUrl: "http://yourhost.com",
+  folder: 'downloads',
+  fileSystem: cordova.file.dataDirectory
+});
+AssetDownloader.getAsset("/assets/abort.png");
 AssetDownloader.abort();
-AssetDownloader.init({folder: "downloads"});
-AssetDownloader.getAsset("http://yourhost.de/another.zip");
+AssetDownloader.init({
+  baseUrl: "http://yourhost.com",
+  folder: 'downloads',
+  fileSystem: cordova.file.dataDirectory
+});
+AssetDownloader.getAsset("/assets/another.png");
 ```
 
 ### Download multiple files to downloads
 ```javascript
-AssetDownloader.init({folder: "downloads"});
-AssetDownloader.getMultipleFiles([
-  {url: "http://yourhost.de/some1.zip", md5:"1f4ea2219aa321ef5cd3143ea33076ac"},
-  {url: "http://yourhost.de/some2.zip", md5:"2f4ea2219aa321ef5cd3143ea33076ad"},
-  {url: "http://yourhost.de/some3.zip", md5:"3f4ea2219aa321ef5cd3143ea33076ae"}
+AssetDownloader.init({
+  baseUrl: "http://yourhost.com",
+  folder: 'downloads',
+  fileSystem: cordova.file.dataDirectory
+});
+AssetDownloader.getMultipleAssets([
+  {url: "/assets/some1.png"},
+  {url: "/assets/some2.png"},
+  {url: "/assets/some3.png"}
 ]);
 ```
